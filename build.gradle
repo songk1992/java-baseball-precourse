@@ -17,6 +17,16 @@ dependencies {
     testImplementation 'org.mockito:mockito-inline:3.6.0'
 }
 
+/* UTF-8 encoding */
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+repositories {
+    mavenCentral()
+}
+
 test {
     useJUnitPlatform()
     testLogging {
