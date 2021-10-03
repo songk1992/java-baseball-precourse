@@ -9,25 +9,18 @@ public class GameService {
     public BaseballNumber generateBaseballNumber(BaseballNumber baseballNumber)
     {
         baseballNumber.setHiddenNumber(generateRandomNum());
-        System.out.println(baseballNumber.getHiddenNumber());
         return baseballNumber;
     }
 
     public int generateRandomNum()
     {
-        int retVal =Randoms.pickNumberInRange(100,999);
-        int tempVal = retVal;
-        int digit3 = tempVal % 10;
-        tempVal /= 10;
-        int digit2 = tempVal % 10;
-        tempVal /= 10;
-        int digit1 = tempVal % 10;
-
-        if((digit3 == digit2) || (digit3 == digit1) || (digit2 == digit1))
-        {
-            retVal = generateRandomNum();
-        }
-        return retVal;
+        int digit1 = Randoms.pickNumberInRange(1,9);
+        int digit2 = Randoms.pickNumberInRange(1,9);
+        if(digit1 == digit2){digit2 = (digit2+1)%10;}
+        int digit3 = Randoms.pickNumberInRange(1,9);
+        if (digit3 == digit2 || digit3 == digit1){digit3 = (digit3 + 1) % 10;}
+        if (digit3 == digit2 || digit3 == digit1){digit3 = (digit3 + 1) % 10;}
+        return (digit1 * 100 + digit2 * 10 + digit3);
     }
 
     public BaseballNumber guessBaseballNumber(BaseballNumber baseballNumber)
@@ -71,9 +64,7 @@ public class GameService {
 
     public boolean checkGameEnd(int endLineCmd)
     {
-        boolean retVal = false;
-        if(endLineCmd == 1) {retVal = true;}
-        return  retVal;
+        return  (endLineCmd == 1);
     }
 
 }
