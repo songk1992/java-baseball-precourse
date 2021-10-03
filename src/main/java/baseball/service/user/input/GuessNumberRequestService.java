@@ -14,9 +14,9 @@ public class GuessNumberRequestService implements RequestNumberService{
             isOutOfBound(retVal);
             hasDuplicate(retVal);
             hasZero(retVal);
-
             return retVal;
         } catch (NumberFormatException e) {
+            System.out.println("[ERROR] 숫자를 다시 입력해주세요");
             return requestNumber();
         }
     }
@@ -24,7 +24,7 @@ public class GuessNumberRequestService implements RequestNumberService{
     private void isOutOfBound(int retVal)
     {
         if(retVal >999 || retVal < 100){
-            throw new NoSuchElementException();
+            throw new NumberFormatException();
         }
     }
 
@@ -38,7 +38,7 @@ public class GuessNumberRequestService implements RequestNumberService{
 
         if((digit3 == digit2) || (digit3 == digit1) || (digit2 == digit1))
         {
-            throw new NoSuchElementException();
+            throw new NumberFormatException();
         }
     }
 
@@ -52,7 +52,7 @@ public class GuessNumberRequestService implements RequestNumberService{
 
         if((digit3 == 0) || (digit1 == 0) || (digit2 == 0))
         {
-            throw new NoSuchElementException();
+            throw new NumberFormatException();
         }
     }
 }

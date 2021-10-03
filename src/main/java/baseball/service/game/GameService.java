@@ -60,11 +60,8 @@ public class GameService {
         if(strikeCnt > 0){tempStr += strikeCnt + "스트라이크";}
         if(strikeCnt > 0 && ballCnt > 0){tempStr += " ";}
         if(ballCnt > 0){tempStr += ballCnt + "볼";}
-        if(strikeCnt == 0 && ballCnt == 0)
-        {
-            tempStr += "낫싱";
-        }
-        System.out.println(tempStr);
+        if(strikeCnt == 0 && ballCnt == 0){tempStr += "낫싱";}
+        System.out.print(tempStr + "\n");
     }
 
 

@@ -14,6 +14,7 @@ public class CommandNumberRequestService implements RequestNumberService{
             }
             return retVal;
         } catch (NumberFormatException e) {
+            System.out.println("[ERROR] 다시 입력해주세요");
             return requestNumber();
         }
     }
