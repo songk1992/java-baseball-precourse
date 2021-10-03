@@ -2,6 +2,8 @@ package baseball.service.user.input;
 
 import nextstep.utils.Console;
 
+import java.util.NoSuchElementException;
+
 public class GuessNumberRequestService implements RequestNumberService{
 
     @Override
@@ -21,7 +23,7 @@ public class GuessNumberRequestService implements RequestNumberService{
     private void isOutOfBound(int retVal)
     {
         if(retVal >999 || retVal < 100){
-            throw new NumberFormatException();
+            throw new NoSuchElementException();
         }
     }
 
@@ -35,7 +37,7 @@ public class GuessNumberRequestService implements RequestNumberService{
 
         if((digit3 == digit2) || (digit3 == digit1) || (digit2 == digit1))
         {
-            throw new NumberFormatException();
+            throw new NoSuchElementException();
         }
     }
 }
