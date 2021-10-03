@@ -13,6 +13,7 @@ public class GuessNumberRequestService implements RequestNumberService{
             int retVal = Integer.parseInt(Console.readLine());
             isOutOfBound(retVal);
             hasDuplicate(retVal);
+            hasZero(retVal);
 
             return retVal;
         } catch (NumberFormatException e) {
@@ -36,6 +37,20 @@ public class GuessNumberRequestService implements RequestNumberService{
         int digit1 = retVal % 10;
 
         if((digit3 == digit2) || (digit3 == digit1) || (digit2 == digit1))
+        {
+            throw new NoSuchElementException();
+        }
+    }
+
+    private void hasZero(int retVal)
+    {
+        int digit3 = retVal % 10;
+        retVal /= 10;
+        int digit2 = retVal % 10;
+        retVal /= 10;
+        int digit1 = retVal % 10;
+
+        if((digit3 == 0) || (digit1 == 0) || (digit2 == 0))
         {
             throw new NoSuchElementException();
         }

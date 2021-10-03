@@ -7,10 +7,10 @@ import baseball.service.user.input.GuessNumberRequestService;
 
 public class GameController {
 
-    CommandNumberRequestService commandNumberRequestService;
-    GuessNumberRequestService guessNumberRequestService;
+    final CommandNumberRequestService commandNumberRequestService;
+    final GuessNumberRequestService guessNumberRequestService;
     BaseballNumber baseballNumber;
-    GameService gameService;
+    final GameService gameService;
 
     public GameController() {
         commandNumberRequestService = new CommandNumberRequestService();

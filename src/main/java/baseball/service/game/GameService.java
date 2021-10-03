@@ -14,12 +14,18 @@ public class GameService {
 
     public int generateRandomNum()
     {
+        /* 임의 값의 숫자 생성 */
         int digit1 = Randoms.pickNumberInRange(1,9);
         int digit2 = Randoms.pickNumberInRange(1,9);
-        if(digit1 == digit2){digit2 = (digit2+1)%10;}
         int digit3 = Randoms.pickNumberInRange(1,9);
-        if (digit3 == digit2 || digit3 == digit1){digit3 = (digit3 + 1) % 10;}
-        if (digit3 == digit2 || digit3 == digit1){digit3 = (digit3 + 1) % 10;}
+
+        if(digit2 == digit1 || digit2 == 0){digit2 = (digit2+1)%10;}
+        if(digit2 == digit1 || digit2 == 0){digit2 = (digit2+1)%10;}
+
+        if (digit3 == digit2 || digit3 == digit1 || digit3 == 0){digit3 = (digit3 + 1) % 10;}
+        if (digit3 == digit2 || digit3 == digit1 || digit3 == 0){digit3 = (digit3 + 1) % 10;}
+        if (digit3 == digit2 || digit3 == digit1 || digit3 == 0){digit3 = (digit3 + 1) % 10;}
+
         return (digit1 * 100 + digit2 * 10 + digit3);
     }
 
