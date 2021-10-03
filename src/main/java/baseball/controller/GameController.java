@@ -47,11 +47,11 @@ public class GameController {
     /* 숫자야구 종료 선택 */
     public void checkEndGame()
     {
-        System.out.println("3개의숫자를모두맞히셨습니다!게임끝");
-        if(gameService.checkGameEnd(commandNumberRequestService.requestNumber()) == true)
+        System.out.println("3개의숫자를모두맞히셨습니다!게임 끝");
+        if(gameService.checkGameEnd(commandNumberRequestService.requestNumber()))
         {
             startGame();
-        };
+        }
     }
 
 }
